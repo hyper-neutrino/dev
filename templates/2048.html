@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="2048 by HyperNeutrino">
+    <meta name="keywords" content="HyperNeutrino,Neutrino,Alexander,Alexander Liao,2048,2048 game">
+    <meta name="author" content="Alexander Liao">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="/static/2048/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/2048/style.css">
+    
+    <title>2048</title>
+  </head>
+  <body>
+    <center>
+      <br /><br />
+      <table id="game">
+        {%- for i in range(1, 5) -%}
+          <tr id="r{{ i }}">
+            {%- for j in range(1, 5) -%}
+              <td id="c{{ i }}{{ j }}"></td>
+            {%- endfor -%}
+          </tr>
+        {%- endfor -%}
+      </table>
+    </center>
+  </body>
+</html>

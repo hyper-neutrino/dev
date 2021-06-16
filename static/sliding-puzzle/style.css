@@ -1,0 +1,16 @@
+table, tr, td {
+  border: 10px solid #ccc;
+  border-collapse: collapse;
+}
+
+td {
+  width: 15vh;
+  height: 15vh;
+  text-align: center;
+  font-family: monospace;
+  font-size: 300%;
+}
+
+body {
+  font-family: monospace;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Sliding Puzzle by HyperNeutrino">
+    <meta name="keywords" content="HyperNeutrino,Neutrino,Alexander,Alexander Liao,sliding puzzle">
+    <meta name="author" content="Alexander Liao">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="/static/sliding-puzzle/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/sliding-puzzle/style.css">
+    
+    <title>Sliding Puzzle</title>
+  </head>
+  <body>
+    <center>
+      <span id="size" data-size="{{ size }}"></span>
+      <br /><br />
+      <table id="game">
+        {%- for i in range(size) -%}
+          <tr>
+            {%- for j in range(size) -%}
+              <td>{{ "" if i == size - 1 and j == size - 1 else i * size + j + 1 }}</td>
+            {%- endfor -%}
+          </tr>
+        {%- endfor -%}
+      </table>
+      <br /><br />
+      <hr />
+      Arrow keys to slide, space bar to shuffle.
+    </center>
+  </body>
+</html>

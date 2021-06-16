@@ -1,0 +1,17 @@
+body {
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  font-family: monospace;
+  color: #ccc;
+}
+
+div {
+  float: left;
+  width: calc(48vw - 2px);
+  height: calc(100vh - 2vw - 2px);
+  margin: 0;
+  padding: 1vw;
+  border: 1px solid #aaa;
+  background-color: #222;
+}

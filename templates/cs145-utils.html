@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Node Visualizer</title>
+  </head>
+  
+  <body>
+    <div>
+      <p id="main" style="font-family:monospace;border:1px solid blue;padding:10px">
+        Press a button to start. The visualization of the tree will appear here - first node is left, second node is right.
+      </p>
+      <p id="notation" style="font-family:monospace;border:1px solid red;padding:10px">
+        The racket notation of the tree will appear here.
+      </p>
+      <button onclick="remove()">
+        Delete a node and all descendants
+      </button>
+      <button onclick="insert()">
+        Insert a node
+      </button>
+      <button onclick="modify()">
+        Modify a node's value
+      </button>
+      <button onclick="racketimport()">
+        Import from Racket notation (overwrites everything)
+      </button>
+      <button id="toggle" onclick="toggle()">
+        Hide node values
+      </button>
+    </div>
+  </body>
+  
+  <script src="/static/cs145-utils/script.js"></script>
+</html>
