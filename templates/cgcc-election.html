@@ -2,7 +2,7 @@
 
 <html>
   <head>
-    <title>CGCC Voter Turnout</title>
+    <title>SE Voter Turnout</title>
   </head>
   
   <body>
@@ -12,6 +12,12 @@
         <h1 id="m1" style="font-size:300%;font-family:monospace">
           <i>{{ value }}</i> users have voted so far (based on the Constituent badge).
         </h1>
+        {%- if throttled -%}
+        <br />
+        <h2 style="font-family:monospace">
+          This query has recently been throttled, so this data may be out of date.
+        </h2>
+        {%- endif -%}
       </center>
     </div>
   </body>

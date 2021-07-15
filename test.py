@@ -6,6 +6,31 @@ import datetime, json, re, requests, time
 app = Flask(__name__)
 CORS(app)
 
+last_time = 0
+cache = 0
+throttled = False
+
+def get_voters():
+  global last_time, cache, throttled
+  if time.time() - last_time < 600:
+    return cache
+  last_time = time.time()
+  page = 1
+  count = 0
+  while True:
+    res = requests.get(f"https://api.stackexchange.com/2.2/badges/89/recipients?page={page}&fromdate=1623628800&site=scifi")
+    if res.status_code != 200:
+      throttled = True
+      return cache
+    data = res.json()
+    count += len(data["items"])
+    if data["has_more"]:
+      page += 1
+      continue
+    cache = count
+    throttled = False
+    return cache
+
 @app.route("/")
 def serve_root():
   return render_template("index.html")
@@ -62,6 +87,10 @@ def serve_keyboard():
 @app.route("/nh/<int:id>")
 def serve_nh(id):
   return send_file(f"/tmp/nhentai/{id}/final.pdf", attachment_filename = f"{id}.pdf")
+
+@app.route("/election")
+def serve_election():
+  return render_template("cgcc-election.html", value = get_voters(), throttled = throttled)
 
 if __name__ == "__main__":
   app.run(host = "0.0.0.0", port = 5678, debug = True)
